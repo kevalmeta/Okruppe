@@ -1,69 +1,127 @@
-# 💰 OkRupee – Customer Ledger & Transaction Manager
+💰 OkRupee – Customer Ledger & Transaction Manager
 
-OkRupee is a simple and efficient Android application for managing customers, tracking transactions, and maintaining balances.  
-Built using **Java**, **SQLite**, and **RecyclerView**.
+OkRupee is a simple and efficient Android app for managing customers, tracking transactions, viewing reports, and maintaining balances.
+Built using Java, SQLite, and clean Material UI components.
 
----
+📸 Screenshots
 
-## 📸 Screenshots
+(Replace these URLs with your own images. These are small preview size — ideal for README.)
 
-> Replace these links with your actual images after uploading to GitHub.
+Login	Dashboard	Customer Details
+<img src="https://github.com/user-attachments/assets/40a63ead-43b6-469b-ab39-ace4f07671ac" width="250">	<img src="https://github.com/user-attachments/assets/abbe8d56-5e54-4d3e-8413-95f9a9bc2cd2" width="250">	<img src="https://github.com/user-attachments/assets/5d49f441-edf1-474c-90f5-455ccb92e2e7" width="250">
+Add Transaction	Reports	Recycle Bin
+<img src="https://github.com/user-attachments/assets/b11df486-7e3b-4137-b023-e9111b472e3b" width="250">	<img src="https://github.com/user-attachments/assets/41381d50-6274-44b7-afd0-e2ef9efe622e" width="250">	<img src="https://github.com/user-attachments/assets/demo" width="250">
+🚀 Features
+👤 User Authentication
 
+Login & Signup
 
-### 🔐 Login & Signup
-![login](https://github.com/user-attachments/assets/40a63ead-43b6-469b-ab39-ace4f07671ac)
+Update profile (name & mobile)
 
-### 🏠 Dashboard
-![img1](https://github.com/user-attachments/assets/abbe8d56-5e54-4d3e-8413-95f9a9bc2cd2)
+🧾 Customer Management
 
-### 👤 Customer Details
-![customer](https://github.com/user-attachments/assets/5d49f441-edf1-474c-90f5-455ccb92e2e7)
+Add customer
 
-### 💳 Transaction Dialog-Box
-![youget](https://github.com/user-attachments/assets/b11df486-7e3b-4137-b023-e9111b472e3b)
+Search customer list
 
-### 📊 Reports
-![viewreport](https://github.com/user-attachments/assets/41381d50-6274-44b7-afd0-e2ef9efe622e)
+Auto-update total balance
 
----
+Delete customer
 
-## 🚀 Features
+💳 Transaction Management
 
-### 👤 User Authentication
-- Signup & Login  
-- Profile update (name & phone)
+Add You Gave / You Got
 
-### 🧾 Customer Management
-- Add customers  
-- Search & Filter  
-- Auto-balance updates  
-- Delete customer  
+Add remarks, date
 
-### 💳 Transaction Management
-- Add "You Gave / You Got" transactions  
-- Date & Time-Ago formatting  
-- Long-press to delete  
+Long-press delete with dialog
 
-### 🗑 Recycle Bin (Soft Delete)
-- Deleted transactions stored using `is_deleted = 1`
-- View, Restore, or Permanently Delete
+Auto customer balance calculation
 
-### 📊 Reports & Summary
-- Complete transaction history  
-- Joined with customer names  
-- Sorted by date  
-- Summary totals  
+🗑 Recycle Bin (Soft Delete)
 
----
+Deleted transactions saved using is_deleted = 1
 
-## 🛠 Tech Stack
+View deleted items
 
-| Component | Technology |
-|----------|------------|
-| Language | Java |
-| Database | SQLite |
-| UI       | XML Layouts, RecyclerView |
-| Architecture | MVVM-ish |
-| Other | Navigation Drawer, SearchView |
+Restore or permanently delete
+
+📊 Reports
+
+Full user-wise transaction history
+
+Customer name join
+
+Sorted by date
+
+Clean summary screen
+
+🛠 Tech Stack
+Component	Technology
+Language	Java
+Database	SQLite
+UI	XML Layouts, RecyclerView
+Auth	SQLite
+Other	Navigation Drawer, SearchView
+📂 Project Structure
+OkRupee/
+│
+├── java/com.example.okrupee/
+│   ├── activities/
+│   ├── adapters/
+│   ├── database/
+│   │   └── DatabaseHelper.java
+│   ├── models/
+│   └── utils/
+│
+├── res/
+│   ├── layout/
+│   ├── drawable/
+│   └── values/
+│
+└── AndroidManifest.xml
+
+⚙️ Database Schema
+Users Table
+Column	Type
+id	INTEGER PRIMARY KEY
+username	TEXT
+phone	TEXT
+password	TEXT
+Customers Table
+Column	Type
+id	INTEGER PRIMARY KEY
+user_id	INTEGER
+name	TEXT
+phone	TEXT
+amount	REAL
+Transactions Table
+Column	Type
+id	INTEGER PRIMARY KEY
+customer_id	INTEGER
+amount	REAL
+remarks	TEXT
+date	TEXT
+is_deleted	INTEGER (0 = active, 1 = deleted)
+📥 Installation
+Clone Repository
+git clone https://github.com/your-username/OkRupee.git
+
+Open in Android Studio
+
+Open Android Studio
+
+Select Open an existing project
+
+Choose the cloned folder
+
+🙌 Contribution
+
+Pull requests are welcome!
+For major changes, please open an issue before submitting changes.
+
+📄 License
+
+This project is free to use under MIT License.
 
 
