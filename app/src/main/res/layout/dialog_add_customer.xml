@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardUseCompatPadding="true"
+    android:clipToPadding="false"
+    tools:ignore="MissingClass">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Customer"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="#1C1C1E"
+            android:paddingBottom="12dp" />
+
+        <!-- Name -->
+        <EditText
+            android:id="@+id/edit_customer_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Customer Name"
+            android:padding="12dp"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:background="@drawable/ios_input_bg"
+            android:layout_marginTop="5dp" />
+
+        <!-- Number -->
+        <EditText
+            android:id="@+id/edit_customer_number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Customer Number"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:background="@drawable/ios_input_bg"
+            android:inputType="phone"
+            android:maxLength="10" />
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="18dp">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_cancel"
+                android:text="Cancel"
+                android:textColor="@android:color/white"
+                app:cornerRadius="10dp" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/primary_blue"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

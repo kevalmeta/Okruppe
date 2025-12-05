@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/gt_YouGet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Transaction"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/text_primary"
+            android:paddingBottom="10dp"/>
+
+        <!-- Amount -->
+        <EditText
+            android:id="@+id/gt_amount"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/ios_edittext_bg"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:hint="Amount"
+            android:inputType="number"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Date -->
+        <EditText
+            android:id="@+id/gt_date"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/ios_edittext_bg"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:hint="Date"
+            android:focusable="false"
+            android:clickable="true"
+            android:drawableEnd="@drawable/ic_date"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Remarks -->
+        <EditText
+            android:id="@+id/gt_remarks"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/ios_edittext_bg"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:hint="Remarks"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:layout_marginTop="12dp"
+            android:gravity="top"/>
+
+        <!-- Add Entry Button -->
+        <Button
+            android:id="@+id/gt_add_entry"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/green"
+            android:text="Add Entry"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            app:cornerRadius="30dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

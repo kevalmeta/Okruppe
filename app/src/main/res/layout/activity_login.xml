@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBFBFB"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- App Logo -->
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/zigzag_line_okrupee"
+            android:layout_marginTop="32dp"
+            android:contentDescription="App Logo" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OkRupee"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#0070C0"
+            android:layout_marginTop="8dp" />
+
+        <!-- Greeting -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hey,"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:layout_marginTop="40dp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome back!"
+            android:textSize="25sp"
+            android:textColor="#444444"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Username/Email Field -->
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter Your Number"
+            android:padding="12dp"
+            android:maxLength="10"
+            android:background="@drawable/card_bg"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:inputType="phone" />
+
+        <!-- Password Field -->
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter Your Password"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/card_bg"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:inputType="textPassword" />
+
+        <!-- Forgot Password -->
+        <TextView
+            android:id="@+id/textForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textColor="#0B60D1"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="end"
+            android:textSize="14sp" />
+
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Login"
+            android:layout_marginTop="24dp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#0B60D1" />
+
+        <!-- Signup Prompt -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don’t have an account?"
+                android:textColor="#777777" />
+
+            <TextView
+                android:id="@+id/textSignupLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Signup"
+                android:textColor="#0B60D1"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

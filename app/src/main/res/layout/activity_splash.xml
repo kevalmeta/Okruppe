@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splashLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFFFFF">
+
+    <!-- App Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/zigzag_line_okrupee"
+        android:contentDescription="App Logo" />
+
+    <!-- App Name -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appName"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:text="OkRuppe"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:textColor="#1ABF14" />
+
+    <!-- Tagline -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tagline"
+        android:layout_marginTop="8dp"
+        android:text="Empowering Smart Payments for Everyone"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:gravity="center"
+        android:paddingHorizontal="24dp"
+        android:textAlignment="center" />
+
+</LinearLayout>

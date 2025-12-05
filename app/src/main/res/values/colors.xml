@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0956B2</color>
+    <color name="midblack">#898989</color>
+    <color name="red">#D00C0C</color>
+    <color name="green">#096D36</color>
+    <color name="n_mid_black">#434242</color>
+    <color name="yellow">#E8E99C</color>
+
+
+    // TODO: new color list
+
+    <!-- 🌟 Primary Brand Colors -->
+    <color name="primary_blue">#007AFF</color>
+    <color name="primary_dark">#0A2540</color>
+    <color name="accent_sky">#4DA8FF</color>
+
+    <!-- 🌟 Transaction Colors -->
+    <color name="transaction_credit">#28A745</color> <!-- You Get -->
+    <color name="transaction_debit">#DC3545</color> <!-- You Give -->
+
+    <!-- 🌟 Background & Surfaces -->
+    <color name="background_light">#F5F7FA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="divider_light">#E5E7EB</color>
+    <color name="input_background">#F2F2F7</color>
+
+    <!-- 🌟 Text Colors -->
+    <color name="text_primary">#1C1C1E</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_placeholder">#A0AEC0</color>
+
+    <!-- 🌟 Alerts / Status -->
+    <color name="success_green">#34C759</color>
+    <color name="error_red">#FF3B30</color>
+    <color name="warning_orange">#FF9500</color>
+    <color name="info_blue">#5856D6</color>
+
+    <!-- 🌟 Common Buttons -->
+    <color name="button_cancel">#FF3B30</color>
+    <color name="button_save">#007AFF</color>
+    <color name="border_circule">#9E9E9E</color>
+
+</resources>
