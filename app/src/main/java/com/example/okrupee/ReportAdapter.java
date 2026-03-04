@@ -34,7 +34,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         TransactionModel transaction = transactionList.get(position);
 
         holder.tvCustomerName.setText(transaction.getCustomerName());

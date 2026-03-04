@@ -153,10 +153,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<TransactionModel> transactions = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-//        Cursor cursor = db.rawQuery(
-//                "SELECT * FROM transactions WHERE customer_id = ?",
-//                new String[]{String.valueOf(customerId)}
-//        );
         //new
         Cursor cursor = db.rawQuery(
                 "SELECT * FROM transactions WHERE customer_id = ? AND is_deleted = 0",
@@ -239,15 +235,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<TransactionModel> transactions = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // SQL Query to join transactions with customers to get customer name
-        // and filter by the logged-in user's ID.
-//        String query = "SELECT t.id, t.customer_id, t.amount, t.remarks, t.date, c.name " +
-//                "FROM " + TABLE_TRANSACTIONS + " t " +
-//                "JOIN " + TABLE_CUSTOMERS + " c ON t.customer_id = c.id " +
-//                "WHERE c.user_id = ? " +
-//                "ORDER BY t.id DESC"; // Or "ORDER BY t.date DESC"
-
-        //NEW Query
         String query = "SELECT t.id, t.customer_id, t.amount, t.remarks, t.date, c.name " +
                 "FROM " + TABLE_TRANSACTIONS + " t " +
                 "JOIN " + TABLE_CUSTOMERS + " c ON t.customer_id = c.id " +
