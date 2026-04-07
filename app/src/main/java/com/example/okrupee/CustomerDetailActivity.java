@@ -1,11 +1,14 @@
 package com.example.okrupee;
 
 import android.app.DatePickerDialog;
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +47,8 @@ public class CustomerDetailActivity extends AppCompatActivity
     private Button btnReminder, btnYouGet, btnYouGive;
     private int customerId;
     DatabaseHelper db;
+    private String customerName;   // 👈 ADD
+    private String customerPhone;  // 👈 ADD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +66,20 @@ public class CustomerDetailActivity extends AppCompatActivity
         tvNumber = findViewById(R.id.tv_number);
 
         // --- receive intent extras (supports both your older/newer keys)
-        String name = getIntent().getStringExtra("name");
-        if (name == null) name = getIntent().getStringExtra("customer_name");
+//        String name = getIntent().getStringExtra("name");
+//        if (name == null) name = getIntent().getStringExtra("customer_name");
+//
+//        String number = getIntent().getStringExtra("number");
+//        if (number == null) number = getIntent().getStringExtra("customer_number");
 
-        String number = getIntent().getStringExtra("number");
-        if (number == null) number = getIntent().getStringExtra("customer_number");
+        customerName = getIntent().getStringExtra("name");
+        if (customerName == null) customerName = getIntent().getStringExtra("customer_name");
+
+        customerPhone = getIntent().getStringExtra("number");
+        if (customerPhone == null) customerPhone = getIntent().getStringExtra("customer_number");
+
+        String name = customerName;     // keep for header UI below
+        String number = customerPhone;  // keep for header UI below
 
         String initial = getIntent().getStringExtra("initial");
         if (initial == null && name != null) initial = name.substring(0, Math.min(1, name.length())).toUpperCase();
@@ -213,6 +228,9 @@ public class CustomerDetailActivity extends AppCompatActivity
                 showToast("Failed to add transaction");
             } else {
                 showToast("Transaction added successfully");
+                // 👇 ADD THIS
+                String smsType = isCredit ? "got" : "gave";
+                sendTransactionSMS(customerPhone, customerName, Math.abs(amt), smsType);
             }
 
             // Create transaction and insert at top (using the new ID)
@@ -271,4 +289,53 @@ public class CustomerDetailActivity extends AppCompatActivity
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
 
+    //SMS feature
+    private void sendTransactionSMS(String phoneNumber, String customerName, double amount, String type) {
+        // Check if phone number exists
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            Toast.makeText(this, "No phone number for this customer", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Build the SMS message
+        String message;
+        if (type.equals("gave")) {
+            message = "Dear " + customerName + ",\n"
+                    + "Rs. " + amount + " credit added to your account.\n"
+                    + "- OkRuppe App";
+        } else {
+            message = "Dear " + customerName + ",\n"
+                    + "Rs. " + amount + " payment received. Thank you!\n"
+                    + "- OkRuppe App";
+        }
+
+        // Check permission and send
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
+                == PackageManager.PERMISSION_GRANTED) {
+            try {
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+                Toast.makeText(this, "✅ SMS sent to " + customerName, Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(this, "❌ SMS failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            // Request permission
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.SEND_SMS},
+                    101);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 101) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "SMS Permission granted! Please add transaction again.", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "SMS Permission denied. SMS will not be sent.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
